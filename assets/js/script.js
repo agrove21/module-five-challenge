@@ -24,13 +24,13 @@ function createTaskCard(task) {
 function renderTaskList() {
     const columns = {
       "To Do": $("#todo-cards"),
-      "In Progress": $("#in-progress-cards"),
-      "Done": $("#done-cards")
+      "in-progress": $("#in-progress-cards"),
+      "done": $("#done-cards")
     };
   
     columns["To Do"].empty();
-    columns["In Progress"].empty();
-    columns["Done"].empty();
+    columns["in-progress"].empty();
+    columns["done"].empty();
   
     taskList.forEach(task => {
       const taskCard = $(createTaskCard(task));
@@ -108,4 +108,8 @@ $(document).ready(function () {
     $("#task-due-date").datepicker({
       dateFormat: "yy-mm-dd"
     });
+
+    $("#formModal").on('show.bs.modal', function(e){
+      $("#add-task-form")[0].reset();
+    })
   });
